@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>다음 회원가입 페이지</title>
+    <style>
+        /* 공통설정 */
+        
+        body, button, input, select, table, textarea {
+            line-height: 1.5; font-family: NotoSans-Regular,AppleSDGothicNeo-Regular,"맑은 고딕",Malgun Gothic,"돋움",dotum,sans-serif;
+            font-size: 16px; color: #7c7c7c; letter-spacing: -0.03em; word-wrap: break-word; word-break: keep-all;
+        }
+        .account_comm {background: #f5f6f7; padding: 50px; display: block; margin: 8px;
+                    display: table; width: 100%; min-width: 320px; height: 100%;
+                    border-collapse: separate;
+        }
+        #mArticle {border: 1px solid lightgray;    position: relative;
+            max-width: 580px; min-height: 520px; margin: 40px auto;
+            padding: 58px 69px 139px; border: 1px solid #e5e5e5;
+            border-radius: 2px; box-sizing: border-box
+        }
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea,
+        p, blockquote, th, td, input, select, button {margin: 0; padding: 0;}
+
+        /* 헤더영역 */
+        /* header { width: 241px; margin-left: auto; margin-right: auto;padding: 46px 0 20px 0;} */
+        header > div{  /* 부모를 header로 가지고 있는 div 요소 */
+            background-image: url("./img/kakao.png");
+            width: 88px; height: 27px; max-width: 520px; margin: 0 auto; text-align: center;
+        }
+        /* ********** */
+        /* body 영역 */
+        .km-page-active {display: block;}
+        /* border: 1px solid lightgray;} */
+        .tit_step { margin-top:0px; margin-bottom: 44px; line-height: 34px; font-weight: normal;
+                    font-size: 24px; color: #252525;
+        }
+        h2 {display: block; font-size: 1.5em; margin-block-start: 0.83em; margin-block-end: 0.83em;
+            margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;
+        }
+        .fld_apply { margin-top: -33px;}
+        fieldset {width: 100%; min-width: 0; max-width: 100%; border: 0 none;
+        }
+        .account_comm .km-page-active .tf_required{ display: block; margin-top: 40px;
+            font-weight: normal; font-size: 12px; color: #000; 
+        }
+        .item_tf {padding-right: 0;}
+        .item_inp {position: relative;}
+        .item_tf .lab_placeholder {position: absolute; top: 0; left: 0; width: 100%;
+            height: 47px; line-height: 47px; color: #adadad;
+        }
+        .item_tf .tf_g:focus { border-color: #7c7c7c;}
+        .lab_g { overflow: hidden; display: block; position: relative;
+                font-size: 15px; color: #4c4c4c; cursor: pointer;
+       }
+       
+       .item_tf .tf_g {caret-color: #f7e317; width: 100%; height: 48px;
+            padding: 11px 70px 11px 0; border-width: 0 0 2px 0;
+            border-color: #ebebeb; border-radius: 0;
+            outline: 0; color: #252525; -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .type_newmail .tf_g { padding-right: 100px;}
+        .util_tf {position: absolute; top: 10px; right: 0; min-width: 55px; text-align: right;}
+        .type_newmail .txt_mail {
+                font-family: NotoSans-Bold,NotoSans-Regular,AppleSDGothicNeo-Regular,"맑은 고딕",Malgun Gothic,"돋움",dotum,sans-serif;
+                color: #7c7c7c;}
+        dl, ul, ol, menu, li {list-style: none;}
+        .fld_g .list_desc {margin-top: 11px; color: #999;}
+        .list_desc { margin-top: 11px; font-size: 12px; color: #7c7c7c;}
+        .list_desc .ico_dot {position: absolute; top: 8px; left: 1px; width: 2px; height: 2px;
+                background-position: -20px -60px;
+        }
+        .ico_account {overflow: hidden; display: inline-block; line-height: 0;
+                font-size: 0; 
+                vertical-align: top; text-indent: -9999px;
+        }
+        .fld_g .list_desc li {margin-top: 4px;}
+        .list_desc li {position: relative; }
+        .util_tf .info_count {display: inline-block; margin-left: 15px;
+            line-height: 22px; font-size: 12px; color: #adadad;
+        }
+        /*  */
+        .tit_step{margin-bottom: 44px; line-height: 34px; font-weight: normal;
+            font-size: 24px; color: #252525;}
+        /* fieldset {width: 100%; min-width: 0; max-width: 100%;
+                 display: block; margin-inline-start: 2px; margin-inline-end: 2px;
+                padding-block-start: 0.35em; padding-inline-start: 0.75em;
+                padding-inline-end: 0.75em; padding-block-end: 0.625em;
+                min-inline-size: min-content; border-width: 2px;
+                border-style: groove; border-color: threedface; border-image: initial;
+        } */
+        .fld_apply {margin-top: -33px;}
+        .tf_required {display: block; margin-top: 40px; font-weight: normal;
+            font-size: 12px; color: #000;}
+            /* 전화번호 */
+        .item_select .link_select { overflow: hidden; display: block; height: 40px;
+            padding: 0 15px; line-height: 40px; color: #252525;
+            white-space: nowrap; text-overflow: ellipsis;
+        }
+        .type_phone{position: relative; height: 48px; padding-left: 85px;
+            border-bottom: 2px solid #ebebeb;
+        }
+        .type_phone .link_selected .ico_arr {margin-left: 32px;}
+        .item_select .link_selected .ico_arr {
+            width: 12px; height: 12px; margin: 17px 0 0 8px;
+            background-position: -180px -30px;
+        }
+        .item_select .link_selected {display: block; height: 48px; line-height: 47px;}
+        .type_phone .item_select {position: absolute; top: 0; left: 0;}       
+        a {color: #4c4c4c; text-decoration: none;}
+        .type_phone .link_selected .ico_arr {margin-left: 32px;}
+        .type_phone .item_tf:before {position: absolute; top: 12px; left: 0;
+            width: 1px; height: 22px; background-color: #e2e2e2; content: '';
+        }
+        .type_phone .item_tf .lab_placeholder {left: 15px;}
+        .wrap_btn { overflow: hidden; margin: 15px 0 40px;}
+        .btn_sendmail{ float: right;}
+        .btn_g { display: inline-block; height: 42px; padding: 0 31px; border: 1px solid #adadad;
+            border-radius: 30px; color: #252525; -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        button {border: 0 none; background-color: transparent; cursor: pointer;}
+
+        /* footer 영역 */
+        footer {padding: 30px 0 15px 0;}
+        footer div{margin:0 0 9px 0;}
+        footer div, footer address { text-align: center; }
+        footer a { text-decoration: none; color: #333; }
+        footer a:hover {text-decoration: underline; color: #438A01;}
+        footer .service_info { color: lightgray;display: inline-block; padding: 0 10px;
+            line-height: 20px; font-size: 0; color: #4c4c4c;
+        }
+        footer address{font-style: normal;font-family: Arial,Helvetica,sans-serif;}
+        footer .item_select{display: inline-block;min-width: 53px;padding: 0 10px;text-align: left;
+        }
+        footer .link_info{ display: inline-block; padding: 0 10px; line-height: 20px;
+                        font-size: 12px; color: #4c4c4c;
+        }
+        #kakaoFoot{margin: 0 auto; text-align: center;}
+        /* ******** */
+        /* 생일영역 */
+        .type_birth .select_year {width: 122px;}
+        .type_birth .select_month {width: 103px;}
+        .type_birth .check_lunar {float: right; margin-top: 10px;}
+        .wrap_inp .item_inp {display: inline-block; padding-right: 0;}
+        .inp_check {top: 1px;}
+        .inp_g {position: absolute; top: 0; left: 0; width: 20px; height: 20px; }
+        .lab_g {overflow: hidden; display: block; position: relative; font-size: 15px;
+            color: #4c4c4c; cursor: pointer;   
+        }
+        .item_on .lab_check .ico_check {background-position: 0 -30px;}
+        .lab_check .ico_check {float: left; width: 20px; height: 20px; margin: 1px 8px 0 0;
+            background-position: -30px -30px;
+        }
+        .inp_radio {top: 13px;}
+        .wrap_inp {-webkit-box-sizing: border-box; box-sizing: border-box;}
+        .item_radio {height: 48px; line-height: 47px;}
+        .item_inp {position: relative; }
+        .wrap_inp .item_radio+.item_radio {margin-top: 0; margin-left: 50px;}
+        .fld_apply .wrap_inp .item_radio+.item_radio {margin-left: 40px;}
+        .txt_radio{margin-left: 20px;}
+
+        .wrap_btn .btn_3 { display: block; width: 100%; height: 50px; padding: 0;
+            border: 0; border-radius: 4px; font-size: 15px; color: #333;
+            background-color: #f6f6f6;
+        }
+        .wrap_btn .btn_3:hover {background-color: #e7e7e7; }
+        
+    </style>
+</head>
+<body class="account_comm">
+    <header>
+        <div></div>
+    </header>
+    <div id="kakaoContent" class="cont_join" role="main">
+            <div id="cMain">
+                <div id="mArticle">
+                    <div id="page-signup-with-phone" data-role="page" data-url="page-signup-with-phone" class="km-page-active">
+                        <h2 class="tit_step">카카오계정 정보를 입력해주세요</h2>
+                        <form action="#">
+                            <fieldset class="fld_g fld_apply"></fieldset>
+                        </form>
+                    
+                        <div id="requiredSignupInfoForm">
+                            <strong class="tf_required">카카오계정 이메일</strong>
+                        
+                            <div class="item_inp item_tf type_newmail">
+                                <label for="id_daum_id_10" class="lab_g lab_placeholder lab_txt">이메일 주소 입력</label>
+                                <input type="text" class="tf_g tf_email" name="daum_id">
+                                <div class="util_tf">
+                                    <button type="button" class="btn_del" style="display: none"></button>
+                                    <span class="txt_mail">@daum.net</span>
+                                </div>
+                            </div>
+                            <ul class="list_desc">
+                                <li>
+                                <span class="ico_account ico_dot"></span>
+                                      카카오계정으로 사용할 Daum 이메일을 만들어주세요.
+                                </li>
+                                <li>
+                                    <span class="ico_account ico_dot"></span>
+                                      만약 사용중인 Daum메일이 있다면, Daum아이디로 로그인하여 계정을 가입해주세요.
+                                </li>
+                            </ul>
+                            <strong class="tf_required">비밀번호</strong>
+                            <div class="item_inp item_tf" style>
+                                <label for="id_new_password_11" class="lab_g lab_placeholder lab_txt">비밀번호(8~32자리)</label>
+                                <input data-type="password" class="tf_g" name="new_password">
+                            </div>
+                            <div class="item_inp item_tf" style>
+                                <label for="id_new_password_11" class="lab_g lab_placeholder lab_txt">비밀번호 재입력</label>
+                                <input data-type="password" class="tf_g" name="new_password">
+                            </div>
+                            <strong class="tf_required">닉네임</strong>
+                            <div class="item_inp item_tf" style>
+                                <label for="id_new_password_11" class="lab_g lab_placeholder lab_txt">닉네임을 입력해주세요</label>
+                                <input data-type="password" class="tf_g" name="new_password">
+                                <div class="util_tf">
+                                    <button type="button" class="btn_del" style="display: none"></button>
+                                    <div class="info_count">
+                                        <span class="screen_out">수</span>
+                                        <span class="count">0 / 20</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <strong class="tf_required">전화번호</strong>
+                            <div class="wrap_inp type_phone">
+                                <div class="item_inp item_select" style="width: 85px">
+                                    <input type="hidden" data-type="select" name="iso_code" class="lab_select" data-label="+82" value="KR_82">
+                                   
+                                    <a href="#none" class="link_selected">+82
+                                        <span class="ico_account ico_arr">선택</span>
+                                    </a>
+                                    <ul class="list_select">
+                                        <li></li>
+                                    </ul>
+                                </div>
+                            
+                            <div class="item_inp item_tf" style>
+                               <label for="id_phone_number_14" class="lab_g lab_placeholder lab_txt">전화번호</label>
+                                <input data-type="tel" class="tf_g" name="phone_number" id="id_phone_number_14">
+                            </div>
+                            <div class="wrap_btn">
+                                <button type="button" class="btn_g btn_sendmail">인증번호 전송</button>
+                            </div>
+                        </div>   
+                        <div>
+                                <strong class="tf_required">생일/성별</strong>
+                        </div>
+                        <div class="wrap_inp type_birth">
+                            <div class="item_inp item_select select_year" style>
+                            <a href="#none" class="link_selected">연도</a>
+                            </div>
+                            <div class="item_inp item_select select_month" style>
+                            <a href="#none" class="link_selected">월</a>
+                            </div>
+                            <div class="item_inp item_select select_day" style>
+                            <a href="#none" class="link_selected">일</a>
+                            </div>
+                            <div class="item_inp item_check check_lunar onitem_on">
+                                <input data-type="checkbox" id="id_is_lunar_16" class="inp_g inp_check" name="is_lunar"type="checkbox">
+                                <label for="id_is_lunar_16" class="lab_g lab_check">
+                                    <span class="ico_account ico_check"></span>
+                                    <span class="txt_check">음력</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="wrap_inp type_inline">
+                            <div class="item_inp item_radio item_on">
+                                <input type="radio" data-type="radio" name="gender" id="id_gender_17" class="inp_g inp_radio" value="none">
+                                <label class="lab_g lab_radio" for="id_gender_17">
+                                    <span class="ico_account ico_radio"></span>
+                                    <span class="txt_radio">선택안함</span>
+                                </label>
+                            </div>
+                            <div class="item_inp item_radio">
+                                <input type="radio" data-type="radio" name="gender" id="id_gender_18" class="inp_g inp_radio" value="female">
+                                <label class="lab_g lab_radio" for="id_gender_18">
+                                    <span class="ico_account ico_radio"></span>
+                                    <span class="txt_radio">여성</span>
+                                </label>
+                            </div>
+                                <div class="item_inp item_radio">
+                                    <input type="radio" data-type="radio" name="gender" id="id_gender_19" class="inp_g inp_radio" value="none">
+                                    <label class="lab_g lab_radio" for="id_gender_19">
+                                        <span class="ico_account ico_radio"></span>
+                                        <span class="txt_radio">남성</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="wrap_btn wrap_btn3">
+                                <button class="btn_3" type="button">다음</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    <footer>
+        <div id="kakaoFoot">
+            <div class="service_info">
+                    <a href="" class="link_info">이용약관</a>
+                    <span class="lightgray"></span>
+                    <strong><a href=""class="link_info">개인정보처리방침</a></strong>
+                    <span class="lightgray"></span>
+                    <a href=""class="link_info">책임의 한계와 법적고지</a>
+                    <span class="lightgray"></span>
+                    <a href=""class="link_info">회원정보</a>
+                    <span class="lightgray"></span>
+                    <a href=""class="link_info">고객센터</a>
+                    <div class="item_inp item_select">
+                            <a href="#none" class="link_selected">한국어</a>
+                             
+                          </div>
+                </div>
+                <address>
+                    <em>Copyright ©</em>
+                    <span><a href="https://daum.net">Kakao Corp. All rights reserved.</a></span>
+                </address>
+        </div>
+    </footer>
+</body>
+</html>

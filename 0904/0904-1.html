@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * { box-sizing: border-box; }
+    .demo { padding: 10px; border: 1px solid lightgray;  }
+    .demo:hover { background-color: blue; } /* 사전지식1 */
+    .demo:hover .red { background-color: red; } /* 사전지식2 */
+    .dropdown { width: 200px; border: 1px solid blue; position: relative; }
+    .dropdown button { background-color: lightcoral; width: 100%; border: none; }
+    .dropdown .dropdown-content { display: none; }
+    .dropdown:hover .dropdown-content { display: block; position: absolute; z-index: 10; }
+    .dropdown-content a { display: block; background-color: lightblue; }
+    .dropdown > img { width: 100px; }       /* 부모가 dropdown인 이미지 */
+    .dropdown-content img { width: 550px; }
+  </style>
+</head>
+<body>
+<section>
+  <h1>드롭다운을 사용하기 위한 사전 지식</h1>
+  <ul>
+    <li>가상 클래스 중에 :hover</li>
+    <li>선택자에서 하위 요소나 클래스를 선택하여 개별 스타일을 지정할 수 있다.</li>
+  </ul>
+</section>
+<div class="demo">
+  <p>가상 클래스 예</p>
+  <div class="red">빨강</div>
+</div>
+<div class="dropdown">
+  <button class="dropbtn">드롭다운</button>
+  <div class="dropdown-content">
+    <a href="#">메뉴1</a>
+    <a href="#">메뉴2</a>
+    <a href="#">메뉴3</a>
+  </div>
+</div>
+<div class="dropdown">
+  <img src="https://live.staticflickr.com/7157/6650634885_be8dee34d0_b.jpg" alt="바다">
+  <div class="dropdown-content">
+    <a href="#"><img src="https://live.staticflickr.com/7157/6650634885_be8dee34d0_b.jpg" alt="바다"></a>
+  </div>
+</div>
+</body>
+</html>

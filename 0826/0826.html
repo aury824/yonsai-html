@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>폼의 사용</title>
+</head>
+<body>
+    <h1>클라이언트에서 서버로 데이터를 전송하는 과정</h1>
+    <ol>
+        <li>웹서버에서 문서를 다운로드하여 브라우저에서 해석</li>
+        <li>폼을 화면에 표시</li>
+        <li>웹 서버로 데이터를 전송</li>
+        <li>웹 서버는 수신한 데이터를 처리</li>
+    </ol>
+    <form action="/post.php" method="post">
+        <!-- method(전송방식) => post, get 방식 -->
+        <!-- 이름: <input type="text" name="name">
+        <input type="radio" name="" id="">
+        <input type="submit" name=""value="전송"> -->
+        <label for="userName">이름:</label>
+        <input type="text" name="userName" id="userName">
+        
+        <label for="userTel">전화번호:</label>
+        <input type="text" name="userTel" id="userTel">
+        <hr>
+        좋아하는 과일은?<br>
+        <input type="radio" name="favorite" id="" value="avocado">아보카도<br>
+        <input type="radio" name="favorite" id="" value="peach">복숭아<br>
+        <input type="radio" name="favorite" id="" value="guava">guava<br>
+        <button type="submit">전송 </button> 
+        <!-- 이미지 테그시 button type 사용 -->
+    </form>
+</body>
+</html>

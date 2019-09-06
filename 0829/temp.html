@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 공통설정 */
+        body { background: #f5f6f7; }
+        body, button, input, select, table, textarea {
+            font-family: Dotum,'돋움',Helvetica,sans-serif; font-size: 12px;
+        }
+        .btn_primary { color: #fff; background-color: #08a600; }
+        /* ************* */
+        /* 입력양식 영역 */
+        .contents { width: 460px; margin-left: auto; margin-right: auto; }
+        .contents .join_row label {
+            display: block; margin: 19px 0 8px;
+            font-size: 14px; font-weight: bold;
+        }
+        .contents .join_row .ps_box {
+            display: block; width: 100%; height: 51px;
+            border: 1px solid #dadada; padding: 10px 14px 10px 14px;
+            background: #fff; box-sizing: border-box; position: relative;
+        }
+        .contents .join_row .ps_box .int {
+            display: block; position: relative; width: 100%; height: 29px;
+            line-height: 29px; border: none; background: #fff;
+            font-size: 15px; -webkit-box-sizing: border-box;
+            box-sizing: border-box; z-index: 10;
+        }
+        /* 생년월일 영역 */
+        .contents .join_row .bir_wrap { display: table; }
+        .contents .join_row .bir_yy,
+        .contents .join_row .bir_mm,
+        .contents .join_row .bir_dd { display: table-cell; width: 147px; vertical-align: middle; }
+        .contents .join_row .bir_yy+.bir_mm,
+        .contents .join_row .bir_mm+.bir_dd { padding-left: 10px; }
+        .contents .join_row .ps_box .sel{ width: 100%; height: 29px; font-size: 15px; 
+            line-height: 18px; color: #000; border: none; border-radius: 0;
+        }
+        /* ****** */
+
+        .contents .join_row .int_mobile_area { position: relative; padding: 0 125px 0 0;}
+        .contents .join_row .int_mobile_area .btn_verify{
+            position: absolute; top: 0; right: 0;
+            width: 115px; height: 51px; text-align: center; box-sizing: border-box;
+            text-decoration: none; display: block; font-size: 15px; cursor: pointer;
+            padding: 17px 0 ;
+        }
+        .contents .btn_area .btn_type {display: block; width: 100%;
+            padding: 21px 0 17px; font-size: 20px; text-align: center;
+            cursor: pointer; box-sizing: border-box;
+        }
+                                                                                                    /* 비밀번호 영역 */
+       .contents .join_row .ps_box .int_pass {position: absolute;padding: 10px 40px 10px 14px;}
+       .contents .join_row .ps_box.int_pass{padding-right: 40px;}
+       .contents .join_row .ps_box .int_pass_img{position: absolute;    
+                content: ''; display: inline-block; position: absolute;
+                top: 50%; right: 16px; width: 18px; height: 20px;
+                margin-top: -10px; cursor: pointer;}
+        .contents .join_row .ps_box .int_pass_img img{width:20px;}
+        
+        /* .contents .join_row .ps_box .int_pass_disable{right: 13px;width: 20px;height: 20px;}    */
+   
+        .contents .join_row .terms_choice {font-size: 12px;font-weight: 400;}
+       </style>
+</head>
+<body>
+    <div class="contents">
+            <section>
+                    <div class="join_row">
+                            <label for="id"><b>비밀번호</b></label>
+                            <span class="ps_box int_pass" id="pswd1Img">
+                                <input type="text" name="int_pass" id="int_pass" maxlength="20" class="int">
+                                <span class="int_pass_img"><img src="../0829/img/pc_icon_pass_180417.png" alt="password"></span>
+                            </span>
+                            <label for="id"><b>비밀번호 재확인</b></label>
+                            <span class="ps_box int_pass" id="pswd1Img">
+                                <input type="text" name="int_pass" id="int_pass" maxlength="20" class="int">
+                                <span class="int_pass_img"><img src="../0829/img/m_icon_check_disable.png" alt="password"></a></span>
+                            </span>
+                       
+                                    
+           </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+.content {width: 900px; margin-left: auto; margin-right: auto;}
+
+/* .content table, */
+.content table th, 
+.content table td{
+    border: 1px solid lightgray;
+    padding: 5px 10px;
+    text-align: center           /*글씨를 중앙으로 */
+}
+.content table th{ background-color: yellow;}
+
+.content table td.title,
+.content table td.text{text-align: left;}
+
+.content table {border-collapse: collapse; width: 100%} /* 두줄을 한줄로 바꿈 */
+
+.content table .sn{width: 45px;}
+/* .content table .title{width: auto;} */
+.content table .author{width: 79px;}
+.content table .created{width: 60px;}
+.content table .attached{width: 64px;}
+
+.font08{font-size: 0.8em;}
+.font2{font-size: 2em;}
+
+ /* detail 페이지 시작*/
+ .content div.title{font-size: 2em;}   
+ .content .info{margin-top:1em; margin-bottom: 1.5em;text-align: right;}
+ .content .info span{color : gray;}
+ .menu{text-align: center; border-top: 1px solid lightgray;
+        margin-top: 24px; padding: 24px;
+}
+.content .menu button{background-color: lightgray; padding: 10px 15px;
+                      border: none; border-radius: 3px;
+}
+ /* detail 페이지 끝 */
+
+ .space {width:2em; display: inline-block;}
+ 
+/* delete 페이지 시작 */
+.notice {width: 450px; margin: auto; color: white;
+         background-color: #333; 
+}
+.notice p{padding: 10px 15px; text-align: center; color: yellow;}
+.notice p::before{content: "{"}
+.notice p::after{content: "}"}
+.notice div{text-align: center; padding: 15px;}
+.notice div button{background-color: lightgray; padding: 10px 15px;
+    border: none; border-radius: 3px; width: 100px;}
+/* deltee 페이지 끝 */
+
+/* write 페이지 시작 */
+.content div.title {font-size: initial; }
+.content form textarea{width: 100%; margin: initial;padding: 5px;}
+.content div.title label{width:90px; display: inline-block;}
+/* label에 width를 적용하기 위해 display 속성을 lnline-block로 변경 */
+.content div.title input{width:800px; padding: 5px;}
+/* write 페이지 끝 */

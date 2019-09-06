@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>애니메니션 버튼</title>
+  <style>
+    .container { display: inline-block; cursor: pointer; }
+    .bar1, .bar2, .bar3 {
+      width: 35px; height: 5px; background-color: #333; margin: 6px 0; transition: 0.4s;
+    }
+    .change .bar1 {transform: rotate(-45deg) translate(-9px, 6px); }
+    .change .bar2 {opacity: 0; transform: translate(0px, 100px); }
+    .change .bar3 {transform: rotate(45deg) translate(-8px, -8px); }
+  </style>
+</head>
+<body>
+  <p>선택을 하면 햄버거 메뉴가 X(닫기) 바뀐다.</p>
+  <!-- 아래 class는 속성, onclick도 속성인데 자바스크립트를 실행할 수 있는 속성 -->
+  <div class="container" onclick="myFunc(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+  <script>
+    function myFunc(x) {
+      // 파라미터로 전달된 객체의 class리스트에서 지정된 이름의 class를 toggle 한다.
+      x.classList.toggle("change");
+    }
+  </script>
+</body>
+</html>

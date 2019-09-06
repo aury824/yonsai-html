@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>반응형 메뉴바</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+  <!-- https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/fontawesome.min.css -->
+  <link rel="stylesheet" href="0904.css">
+  
+</head>
+<body>
+  <header>
+    <div class="topnav clearfix" id="myTopnav">
+      <a href="#"><i class="fas fa-home"></i> 홈</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn"><i class="fas fa-newspaper"></i> 뉴스</a>
+        <div class="dropdown-content">
+          <a href="#">사자</a>
+          <a href="#">호랑이</a>
+          <a href="#">기린</a>
+        </div>
+      </div>
+      <a href="#"><i class="fas fa-address-book"></i> 연락처</a>
+      <a href="#"><i class="fas fa-file-alt"></i> 자기소개</a>
+      <input type="text" placeholder="검색" class="search">
+      <a href="javascript:void(0);" class="icon" onclick="myFunc()"> <i class="fas fa-bars"></i> </a>
+    </div>
+  </header>
+  <div class="contents">
+    <h1>동물농장</h1>
+    <p>그들의 용감하고 만물은 그들의 뭇 생명을 트고, 하였으며, 있는 사막이다. 피가 구하지 청춘에서만 위하여서. 보배를 것은 피는 가슴에 운다. 심장은 이 뜨거운지라, 보는 이상을 것이다. 평화스러운 아니더면, 투명하되 인생을 풀이 인생을 것은 불어 있는가? 안고, 낙원을 인간에 피는 가치를 눈이 그리하였는가? 이 이 이상, 더운지라 가는 얼음이 같으며, 오직 동산에는 것이다. 스며들어 사람은 든 그것은 것이다. 소리다.이것은 이상을 튼튼하며, 같으며, 할지라도 안고, 불어 물방아 관현악이며, 때문이다.</p>
+    <p>주는 구하지 꽃이 창공에 영락과 구할 인생의 사막이다. 속에서 살았으며, 천지는 얼마나 이것을 인생에 얼음이 군영과 쓸쓸하랴? 우리 주는 생의 날카로우나 고동을 가는 이상을 천고에 보라. 무엇을 생명을 두손을 반짝이는 장식하는 피어나기 군영과 고행을 주며, 끓는다. 웅대한 생명을 반짝이는 무엇이 천하를 인간은 소담스러운 가는 말이다. 예가 몸이 눈이 인류의 이상의 보라. 실로 수 청춘의 새 발휘하기 끓는 보라. 거친 앞이 든 얼음 끝까지 만천하의 풀밭에 이상을 뿐이다. 보이는 남는 기관과 주며, 인생에 하는 봄바람이다. 수 하는 것이다.보라, 인류의 그것은 아니다. 불러 장식하는 길지 그리하였는가?</p>
+  </div>
+<script>
+  function myFunc() {
+    var x = document.getElementById("myTopnav");
+    // if (x.className === "topnav clearfix") {
+    //   x.className += " responsive";
+    // } else {
+    //   x.className = "topnav clearfix";
+    // }
+    x.classList.toggle("responsive");
+  }
+</script>
+</body>
+</html>

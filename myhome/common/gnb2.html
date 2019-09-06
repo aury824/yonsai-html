@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .gnb {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: lightgray;
+        }
+        /* .gnb li {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: block;
+            width: 125px;
+        } */
+        .clearfix {content: ""; clear: both; display: table;}
+        .gnb li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+        .gnb li a.active {
+            background-color: green;
+            color: white;
+        }
+        .gnb li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <ul class="gnb">
+        <li><a href="/myhome/" class="active">홈</a></li>
+        <!-- <li><a href="../">홈</a></li> -->
+        <li><a href="/myhome/portfolio/calc.html">계산기</a></li>
+        <li><a href="/myhome/board/list.html">게시판(글목록)</a></li>
+        <li><a href="/myhome/sitemap.html">사이트맵</a></li>
+    </ul>
+    <div class="clearfix"></div>
+    <div>테스트 문장입니다.</div>
+</body>
+</html>

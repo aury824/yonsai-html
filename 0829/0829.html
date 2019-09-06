@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>회원가입</title>
+    <style>
+    
+    section button {text-align: center;}
+    /* div{border: 1px solid lightgray;} */
+    .header {text-align: center;}
+    div {width: 450px; margin: auto;
+        padding-top: 27px; 
+    }
+    div input{width: 450px; height: 45px; box-sizing: border-box;}
+   .bottom{width: 450px; height:45px; background-color:green;color:white;}
+   </style>
+</head>
+<body>
+    <section>
+    <div>
+        <div class="header">
+            <img src="../img/naver.png"  alt="네이버">
+        </div>
+        <div>
+            <label for="naver1_id"><b>아이디 </b></label>
+        </div>
+        <div>  <input type="text" name="naver1" id="naver1_id">
+        </div>
+        <div>
+            <label for="naver2_password"><b>비밀번호 </b></label></div>
+            <div>
+            <input type="text" name="naver2" id="naver2_password">
+        </div>
+        <div>
+            <label for="naver3_repassword"><b>비밀번호 재확인 </b></label>
+        </div>
+        <div>
+            <input type="text" name="naver3" id="naver3_repassword">
+        </div>
+        <div>
+            <label for="naver4_name"><b>이름 </b></label>
+        </div>
+        <div>    
+        <input type="text" name="naver4" id="naver4_name">
+        </div>
+       <div>
+            <label for="naver5_birth date"><b>생년월일 </b></label>
+       </div>
+       <div class="a">
+            <input type="text" name="naver5" id="naver5_birth date"
+           style=" width: 145px; height: 45px;">
+        
+                <select name="month"style=" width: 147px; height: 45px;">
+                    <option value="month">월</option>
+                    <option value="january">1</option>
+                    <option value="february">2</option>
+                    <option value="march">3</option>
+                    <option value="april">4</option>
+                    <option value="may">5</option>
+                    <option value="june">6</option>
+                    <option value="july">7</option>
+                    <option value="august">8</option>
+                    <option value="september">9</option>
+                    <option value="october">10</option>
+                    <option value="novermber">11</option>
+                    <option value="december">12</option>
+                </select>
+            
+            <input type="text" name="naver6" id="naver6_day"style=" width: 145px; height: 45px;">
+        </div>
+        <div>
+            <label for="gender"><b>성별 </b></label>
+        </div>
+        <div>
+            <select name="gender"style=" width: 450px; height: 45px;">
+                <option value="gender">성별</option>
+                <option value="man">남자</option>
+                <option value="woman">여자</option>
+            </select>
+        </div>
+        <div>
+            <label for="naver7_email"><b>본인 확인 이메일(선택) </b></label>
+        </div>
+        <div>
+            <input type="text" name="naver7" id="naver7_email">
+        </div>
+        
+        <div>
+            <label for="naver8_phone"><b>휴대전화 </b></label>
+        </div>
+        <div>
+            <select name="number" style= "width: 450px; height: 45px;margin-bottom: 5px;">
+            <option value="number">대한민국 +82</option>
+            <option value="number1"></option>
+        </div>
+        <div>
+            <input type="text" name="naver8" id="naver8_phone"style= "float:left; width : 300px;margin-bottom: 5px; margin-right: 20px;">
+        </div>
+
+            <label for="naver9_phone_number"></label>
+            <button type="button"style="width: 130px;  height: 45px; background-color:green;background-color: green;
+            color: white;">인증번호 받기</button>
+            <input type="text" name="naver9" id="naver9_phone_number"style= "margin-bottom: 5px;">
+            
+        </div>
+        <div>
+        <button type="button" class="bottom">가입하기</button>
+        </div>
+    </div>
+</section>
+</body>
+</html>

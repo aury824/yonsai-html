@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 공통영역 */
+        .account_comm {background: #f5f6f7; padding: 50px; display: block; margin: 8px;
+                    display: table; width: 100%; min-width: 320px; height: 100%;
+                    border-collapse: separate;
+        }
+        body, button, input, select, table, textarea {
+            line-height: 1.5; font-family: NotoSans-Regular,AppleSDGothicNeo-Regular,"맑은 고딕",Malgun Gothic,"돋움",dotum,sans-serif;
+            font-size: 16px; color: #7c7c7c; letter-spacing: -0.03em; word-wrap: break-word; word-break: keep-all;
+        }
+        #mArticle {border: 1px solid lightgray; position: relative;
+            max-width: 580px; min-height: 520px; margin: 40px auto;
+            padding: 58px 69px 139px;  border-radius: 2px; box-sizing: border-box}
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, textarea,
+        p, blockquote, th, td, input, select, button {margin: 0; padding: 0;}
+
+        /* body영역 */
+        .km-page-active {display: block;border: 1px solid lightgray;}
+        .tit_step { margin-top:0px; margin-bottom: 44px; line-height: 34px; font-weight: normal;
+                    font-size: 24px; color: #252525;
+        }
+        h2 {display: block; font-size: 1.5em; margin-block-start: 0.83em; margin-block-end: 0.83em;
+            margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;
+        }
+        .fld_apply { margin-top: -33px;}
+        fieldset {width: 100%; min-width: 0; max-width: 100%; border: 0 none;
+        }
+        .account_comm .km-page-active .tf_required{ display: block; margin-top: 40px;
+            font-weight: normal; font-size: 12px; color: #000; 
+        }
+        .item_tf {padding-right: 0;}
+        .item_inp {position: relative;}
+        .item_tf .lab_placeholder {position: absolute; top: 0; left: 0; width: 100%;
+            height: 47px; line-height: 47px; color: #adadad;
+        }
+        .item_tf .tf_g:focus { border-color: #7c7c7c;}
+        .lab_g { overflow: hidden; display: block; position: relative;
+                font-size: 15px; color: #4c4c4c; cursor: pointer;
+       }
+       
+       .item_tf .tf_g {caret-color: #f7e317; width: 100%; height: 48px;
+            padding: 11px 70px 11px 0; border-width: 0 0 2px 0;
+            border-color: #ebebeb; border-radius: 0;
+            outline: 0; color: #252525; -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .type_newmail .tf_g { padding-right: 100px;}
+        .util_tf {position: absolute; top: 10px; right: 0; min-width: 55px; text-align: right;}
+        .type_newmail .txt_mail {
+                font-family: NotoSans-Bold,NotoSans-Regular,AppleSDGothicNeo-Regular,"맑은 고딕",Malgun Gothic,"돋움",dotum,sans-serif;
+                color: #7c7c7c;}
+        dl, ul, ol, menu, li {list-style: none;}
+        .fld_g .list_desc {margin-top: 11px; color: #999;}
+        .list_desc { margin-top: 11px; font-size: 12px; color: #7c7c7c;}
+        .list_desc .ico_dot {position: absolute; top: 8px; left: 1px; width: 2px; height: 2px;
+                background-position: -20px -60px;
+        }
+        .ico_account {overflow: hidden; display: inline-block; line-height: 0;
+                font-size: 0; 
+                vertical-align: top; text-indent: -9999px;
+        }
+        .fld_g .list_desc li {margin-top: 4px;}
+        .list_desc li {position: relative; padding-left: 7px;
+        }
+        .util_tf .info_count {display: inline-block; margin-left: 15px;
+            line-height: 22px; font-size: 12px; color: #adadad;
+        }
+
+        /* 전화번호 */
+        .item_select .link_select { overflow: hidden; display: block; height: 40px;
+            padding: 0 15px; line-height: 40px; color: #252525;
+            white-space: nowrap; text-overflow: ellipsis;
+        }
+        .type_phone{position: relative; height: 48px; padding-left: 85px;
+            border-bottom: 2px solid #ebebeb;
+        }
+        .type_phone .link_selected .ico_arr {margin-left: 32px;}
+        .item_select .link_selected .ico_arr {
+            width: 12px; height: 12px; margin: 17px 0 0 8px;
+            background-position: -180px -30px;
+        }
+        .item_select .link_selected {display: block; height: 48px; line-height: 47px;}
+        .type_phone .item_select {position: absolute; top: 0; left: 0;}       
+        a {color: #4c4c4c; text-decoration: none;}
+        .type_phone .link_selected .ico_arr {margin-left: 32px;}
+        .type_phone .item_tf:before {position: absolute; top: 12px; left: 0;
+            width: 1px; height: 22px; background-color: #e2e2e2; content: '';
+        }
+        .type_phone .item_tf .lab_placeholder {left: 15px;}
+        .wrap_btn { overflow: hidden; margin: 15px 0 40px;}
+        .btn_sendmail{ float: right;}
+        .btn_g { display: inline-block; height: 42px; padding: 0 31px; border: 1px solid #adadad;
+            border-radius: 30px; color: #252525; -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        button {border: 0 none; background-color: transparent; cursor: pointer;}
+        
+        /* 생일 성별 */
+    </style>
+</head>
+<body class="account_comm">
+    <header></header>
+    <div id="kakaoContent" class="cont_join" role="main">                              
+        <div id="cMain">
+            <div id="mArticle">
+                    <div class="wrap_inp type_phone">
+                            <div class="item_inp item_select" style="width: 85px">
+                                <input type="hidden" data-type="select" name="iso_code" class="lab_select" data-label="+82" value="KR_82">
+                                   
+                                <a href="#none" class="link_selected">+82
+                                    <span class="ico_account ico_arr">선택</span>
+                                </a>
+                                <ul class="list_select">
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div class="item_inp item_tf" style>
+                               <label for="id_phone_number_14" class="lab_g lab_placeholder lab_txt">전화번호</label>
+                                <input data-type="tel" class="tf_g" name="phone_number" id="id_phone_number_14">
+                            </div>
+                            <div class="wrap_btn">
+                                <button type="button" class="btn_g btn_sendmail">인증번호 전송</button>
+                            </div>
+                            <div>
+                            <strong class="tf_required">생일/성별</strong>
+                            </div>
+                    </div>  
+                    
+                
+            </div> 
+        </div>
+    </div>
+    <footer></footer>    
+</body>
+</html>

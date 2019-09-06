@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>네이버 회원가입 페이지</title>
+    <style>
+        /* 공통설정 */
+        body {background: #f5f6f7;}
+        body, button, input, select, table, textarea {
+            font-family: Dotum,'돋움',Helvetica,sans-serif;
+            font-size: 12px;
+        }
+        .btn_primary { color: #fff; background-color: #08a600; }
+        /* ******** */
+        /* 헤더영역 */
+        header { width: 241px; margin-left: auto; margin-right: auto;    padding: 46px 0 20px 0;}
+        header > div{  /* 부모를 header로 가지고 있는 div 요소 */
+            background-image: url("./img/naver_logo.png");
+            width: 241px; height: 47px;
+        }
+        /* ******** */
+        /* 입력양식 영역 */
+                                                                                                  /* 아이디 입력 영역 */
+       .contents {width: 460px; margin-left: auto; margin-right: auto; }
+       .contents .join_row label{
+           display: block; margin: 19px 0 8px; 
+           font-size: 14px; font-weight: bold;
+        }
+       .contents .join_row .ps_box{
+           display: block; width: 100%; height: 51px; border: 1px solid #dadada;
+           padding: 10px 14px 10px 14px;background-color: #fff;
+           box-sizing: border-box; position: relative;
+        }
+        
+        .contents .join_row .ps_box .int{display: block; position: relative;
+            width: 100%; height: 29px; line-height: 29px; border: none;
+            background: #fff; font-size: 15px; box-sizing: border-box; z-index: 10;
+            -webkit-box-sizing: border-box;
+        }
+        .contents .join_row .ps_box.int_id{padding-right: 110px;}
+
+        .contents .join_row .ps_box .step_url {
+            position: absolute; top: 16px; right: 13px;
+            font-size: 15px; line-height: 18px; color: #8e8e8e;
+        }
+                                                                                                     /* 비밀번호 영역 */
+       .contents .join_row .ps_box .int_pass {position: absolute;padding: 10px 40px 10px 14px;}
+       .contents .join_row .ps_box.int_pass{padding-right: 40px;}
+       .contents .join_row .ps_box .int_pass_img{position: absolute;    
+                content: ''; display: inline-block; position: absolute;
+                top: 50%; right: 16px; width: 18px; height: 20px;
+                margin-top: -10px; cursor: pointer;}
+        .contents .join_row .ps_box .int_pass_img img{width:20px;}
+                                                                                                  /* 생년월일 영역 */
+        .contents .join_row .bir_wrap{display: table;}
+        .contents .join_row .bir_yy,
+        .contents .join_row .bir_mm,
+        .contents .join_row .bir_dd {display: table-cell; width: 147px;vertical-align: middle;}
+        .contents .join_row .bir_yy+.bir_mm,
+        .contents .join_row .bir_mm+.bir_dd {padding-left: 10px;}
+        .contents .join_row .ps_box .sel{ width: 100%; height: 29px; font-size: 15px; 
+            line-height: 18px; color: #000; border: none; border-radius: 0;
+        }
+                                                                                                /* 이메일 영역 */
+        .contents .join_row .terms_choice {font-size: 12px;font-weight: 400;color: #8e8e8e;}
+                                                                                                /* 전화번호 입력 영역 */
+        .contents .join_row .int_mobile_area { position: relative; 
+            padding: 0 125px 0 0;margin-top: 10px; margin-bottom: 10px;
+        }
+        .contents .join_row .int_mobile_area .btn_verify{
+            position: absolute; top: 0; right: 0;
+            width: 115px; height: 51px; text-align: center; box-sizing: border-box;
+            text-decoration: none; display: block; font-size: 15px; cursor: pointer;
+            padding: 17px 0 ;
+        }
+                                                                                                /* 가입하기 버튼 영역 */
+        .contents .btn_area .btn_type {display: block; width: 100%;
+            padding: 21px 0 17px; font-size: 20px; text-align: center;
+            cursor: pointer; box-sizing: border-box; margin-top: 30px;
+        }
+        /* ********** */
+        /* 꼬릿말 영역 */
+        footer {padding: 30px 0 15px 0;}
+        footer div{margin:0 0 9px 0;}
+        footer div, footer address { text-align: center; }
+        footer a { text-decoration: none; color: #333; }
+        footer a:hover {text-decoration: underline; color: #438A01;}
+        footer .lightgray { color: lightgray; }
+        footer address{font-style: normal;font-family: Arial,Helvetica,sans-serif;}
+        /* ******** */
+    </style>
+</head>
+<body>
+    <header>
+        <div></div>
+    </header>
+    <div class="contents">
+            <section>
+                <div class="join_row">
+                    <label for="id"><b>아이디 </b></label>
+                    <span class="ps_box int_id">
+                        <input type="text" name="id" id="id" maxlength="20" class="int">
+                        <span class="step_url">@naver.com</span>
+                    </span>
+                </div>
+                <div class="join_row">
+                        <label for="id"><b>비밀번호</b></label>
+                        <span class="ps_box int_pass" id="pswd1Img">
+                            <input type="text" name="int_pass" id="int_pass" maxlength="20" class="int">
+                            <span class="int_pass_img"><img src="../0829/img/pc_icon_pass_180417.png" alt="password"></span>
+                        </span>
+                        <label for="id"><b>비밀번호 재확인</b></label>
+                        <span class="ps_box int_pass" id="pswd1Img">
+                            <input type="text" name="int_pass" id="int_pass" maxlength="20" class="int">
+                            <span class="int_pass_img"><img src="../0829/img/m_icon_check_disable.png" alt="password"></a></span>
+                        </span>
+                    </div>
+                <div class="join_row">
+                        <label for="id"><b>이름 </b></label>
+                        <span class="ps_box int_id">
+                            <input type="text" name="id" id="id" maxlength="20" class="int">
+                        </span>
+                </div>
+                <div class="join_row">
+                        <label for="yy_id">생년월일</label>
+                        <div class="bir_wrap">
+                            <div class="bir_yy">
+                                <span class="ps_box">
+                                    <input type="text" id="yy_id" name="yy" class="int" placeholder="년(4자)" maxlength="4">
+                                </span>
+                            </div>
+                            <div class="bir_mm">
+                                <span class="ps_box">
+                                    <select name="mm" id="mm_id" class="sel">
+                                        <option>월</option>
+                                        <option value="1">1월</option>
+                                        <option value="2">2월</option>
+                                         <option value="3">3월</option>
+                                        <option value="4">4월</option>
+                                        <option value="5">5월</option>
+                                        <option value="6">6월</option>
+                                        <option value="7">7월</option>
+                                        <option value="8">8월</option>
+                                        <option value="9">9월</option>
+                                        <option value="10">10월</option>
+                                        <option value="11">11월</option>
+                                        <option value="12">12월</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div class="bir_dd">
+                                <span class="ps_box">
+                                    <input type="text" id="yy_id" name="yy" class="int" placeholder="일" maxlength="2">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="join_row">
+                        <label for="gender_id">성별</label>
+                            <span class="ps_box">
+                                <select name="gender" id="gender_id" class="sel">
+                                    <option selected>성별</option>
+                                    <option value="M">남자</option>
+                                    <option value="W">여자</option>
+                                </select>
+                            </span>
+                    </div>
+                    <div class="join_row">
+                            <label for="email">본인 확인 이메일<span class="terms_choice">(선택)</span></label>
+                            <span class="ps_box int_id">
+                                <input type="text" name="id" id="id" maxlength="20"placeholder="선택입력" class="int">
+                            </span>
+                    </div>
+                    <div class="join_row">
+                        <label for="gender_id">휴대전화</label>
+                        <span class="ps_box">
+                                <select name="gender" id="gender_id" class="sel">
+                                    <option selected>대한민국 +82</option>
+                                    <option value="1"></option>
+                                </select>
+                        </span>
+                        <div class="int_mobile_area">
+                            <span class="ps_box">
+                            <input type="text" name="id" id="id" maxlength="16" placeholder="전화번호 입력"class="int margin">
+                            </span>
+                            <a href="" class="btn_primary btn_verify">인증번호 받기</a>
+                        </div>
+                        <span class="ps_box int_id">
+                                <input type="text" name="id" id="id" maxlength="20" placeholder="인증번호 입력하세요"class="int">
+                            </span>
+                    </div>
+                    <div class="btn_area">
+                        <button type="button" id="btnJoin" class="btn_type btn_primary">
+                            <span>가입하기</span>
+                        </button>
+                    </div>
+            </section>
+    </div>
+    
+    <footer>
+        <div>
+            <a href="">이용약관</a>
+            <span class="lightgray">|</span>
+            <strong><a href="">개인정보처리방침</a></strong>
+            <span class="lightgray">|</span>
+            <a href="">책임의 한계와 법적고지</a>
+            <span class="lightgray">|</span>
+            <a href="">회원정보</a>
+            <span class="lightgray">|</span>
+            <a href="">고객센터</a>
+        </div>
+        <address>
+            <em>@</em>
+            <span><a href="https://naver.com">NAVER Corp.</a></span>
+        </address>
+    </footer>
+</body>
+</html>
