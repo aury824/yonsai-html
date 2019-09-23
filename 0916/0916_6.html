@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas { background-color: #f1f1f1; border: 1px solid #d3d3d3;}
+    </style>
+</head>
+<body onload="startGame()">
+    
+<script>
+    var myGamePiece = [] , rdNum, rdNum2;
+    function startGame(){
+        myGameArea.start();
+        // myGamePiece = new component(30, 30, "red", 10, 120);
+        // myGamePiece2 = new component(30, 30, "blue", 400, 220);
+        // myGamePiece3 = new component(30, 30, "green", 10, 50);
+        for (var i = 0; i<60; i++){
+            rdNum = Math.floor(Math.random()*200)+1;
+            rdNum2 = Math.floor(Math.random()*270)+1;
+            myGamePiece.push(new component(30, 30, "red", rdNum, rdNum2));
+        }
+    }
+    var myGameArea ={
+         canvas : document.createElement("canvas"),
+         start : function() {
+            this.canvas.width = 480;
+            this.canvas.height = 270;
+            this.context = this.canvas.getContext("2d");
+            document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+            this.interval= setInterval(updateGameArea, 20);
+        },
+        clear: function(){
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        }    
+    }
+    // 생성자 함수
+    function component(width, height, color, x, y){
+        this.width = width;
+        this.height = height;
+        this.x = x;
+        this.y = y;
+        this.speed = (Math.floor(Math.random()*10)+5)/10;
+
+        this.update = function(){
+            ctx = myGameArea.context;
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+   
+    function updateGameArea(){
+        myGameArea.clear();
+         // myGamePiece.update();
+        for(var i=0; i<60; i++){
+            myGamePiece[i].x += myGamePiece[i].speed;
+            myGamePiece[i].update(); //화면을 다시그리기만 함.
+        }
+    }
+    
+</script>
+    <p>캔바스를 추가</p>
+
+</body>
+</html>

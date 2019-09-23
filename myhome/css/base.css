@@ -8,21 +8,22 @@
     font-weight: bold;
     list-style-type: none;
     margin: 0; padding: 0; overflow:hidden;
-    /* background-color: #dadada; */
     margin-bottom: 24px;
+    
+    /* background-color: #dadada; */
 }
 .gnb li{float: left;}
-.gnb .float_r{float: right;}
+/* .gnb .float_r{float: right;} */
 .gnb li a{
     display: block; color: black;
-    text-align: center; padding: 14px 16px;
-    text-decoration: none;
+    text-align: center; padding: 14px 136px 14px 136px;
+    text-decoration: none; 
 }
 .gnb li a.active {
-    background-color: #3DFF92; color: black;
+    background-color: lightsteelblue; color: black;
 }
 .gnb li a:hover:not(.active) {
-    background-color: #3DFF92; color: black;
+    background-color: lightsteelblue; color: black;
 }
 .clearfix {content: "";clear: both; display: table;
 }

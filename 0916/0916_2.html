@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p,div,form{padding: 20px;}
+        form {border:1px solid black;}
+        div{border:1px solid blue;}
+        p {border:1px solid red;}
+
+    </style>
+</head>
+<body>
+    <form action="" id="form">
+        <div>
+            <p>div 핸들러를 할당했고, <em>em을 클릭</em>해도 이벤트 핸들러는 실행됨</p>
+        </div>
+    </form>
+    <script>
+        var el = document.getElementById('form');
+        el.addEventListener('click', myFn, false);
+        function myFn(e){
+            alert(e.target.nodeName);
+        }
+    </script>
+</body>
+</html>

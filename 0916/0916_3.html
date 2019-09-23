@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas{ background-color: #333; }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext("2d");
+        var radius = canvas.clientHeight/2;
+        ctx.translate(radius, radius);
+        radius = radius * 0.90;
+        
+        
+        setInterval(runTime, 1000);
+        
+        function runTime() {
+            drawClock(ctx, radius);
+            drawNumber(ctx, radius);
+            drawTime(ctx, radius);
+        }
+
+
+        function drawClock(){
+            // 흰색 원
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, 2*Math.PI);
+            ctx.fillStyle = "white";
+            ctx.fill();
+
+            grad = ctx.createRadialGradient(0, 0,radius*0.95, 0 , 0, radius*1.05);
+            grad.addColorStop(0,'#333');
+            grad.addColorStop(0.5,'white');
+            grad.addColorStop(1,'yellow');
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = radius*0.1;
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(0, 0 , radius*0.1, 0, 2*Math.PI);
+            ctx.fillStyle="#333"
+            ctx.fill();
+        }
+        drawClock();
+
+        function drawNumber() {
+            ctx.font = radius*0.15 +"px arial";    
+            ctx.textBaseline ="middle";
+            ctx.textAlign = "center";
+            // ctx.fillText(12, 0, 0);
+            // ctx.fillStyle = "red";
+
+            for(var num=1; num<13 ; num++){
+                var ang = num * Math.PI/6;
+                ctx.rotate(ang);
+                ctx.translate(0, -radius * 0.85);
+                ctx.rotate(-ang);
+                ctx.fillText(num, 0, 0);
+                ctx.rotate(ang);
+                ctx.translate(0, radius * 0.85);
+                ctx.rotate(-ang);
+            }
+        }
+        drawNumber();
+        
+        function drawTime() {
+            //시간을 가져다가 화면에 그려준다
+            var now = new Date();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            //시간 각도
+            hour = hour%12;
+            hour = (hour*Math.PI/6) + (minute*Math.PI/(6*60)) + (second*Math.PI/(6*60*60));
+            drawHand(hour, radius*0.5, radius*0.07);
+            // 분 각도
+            minute = (minute*Math.PI/30) + (second*Math.PI/(30*60));
+            drawHand(minute, radius*0.8, radius*0.07);
+            // 초 각도
+            second = (second*Math.PI/30);
+            drawHand(second, radius*0.9, radius*0.02);
+        }
+        drawTime();
+
+        function drawHand(pos,lenth, width) {
+            ctx.beginPath();
+            ctx.lineWidth = width;  //시,분,초 침 두께
+            ctx.lineCap = "round";
+            ctx.moveTo(0,0);
+            ctx.rotate(pos);        //현재의 시,분,초
+            ctx.lineTo(0,-lenth);     //시분초침의 길이
+            ctx.stroke();
+            ctx.rotate(-pos);
+        }
+        // drawHand();
+    </script>
+</body>
+</html>
