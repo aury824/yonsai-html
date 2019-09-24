@@ -1,33 +1,39 @@
 
- body{margin: 0;  }
-
-
-
+ header {font-family: serif; font-size: 60px;
+    text-align: center; color: lightblue;
+    margin: 10px;
+} 
+ pre{margin-top: 20px; margin-bottom: 20px;}
+ body{margin: 0; background-image: url("/myhome/img/picture.jpeg");
+    background-size: cover;
+}
+canvas{display: block; margin: 10px auto 10px auto;}
  div, a, input, textarea, button {box-sizing: border-box;}
- .gnb {
+ .gnb {    padding-left: 0px;
+    
     font-weight: bold;
     list-style-type: none;
-    margin: 0; padding: 0; overflow:hidden;
+    margin: 0; overflow:hidden;
     margin-bottom: 24px;
     
     /* background-color: #dadada; */
 }
 .gnb li{float: left;}
-/* .gnb .float_r{float: right;} */
-.gnb li a{
-    display: block; color: black;
-    text-align: center; padding: 14px 136px 14px 136px;
+.gnb .stie{float: right;}
+.gnb li a{width: 315px;
+    display: block; color: whitesmoke;
+    text-align: center; padding: 14px 132px 14px 133px;
     text-decoration: none; 
 }
 .gnb li a.active {
-    background-color: lightsteelblue; color: black;
+    background-color: cornflowerblue; color: black
 }
-.gnb li a:hover:not(.active) {
-    background-color: lightsteelblue; color: black;
+.gnb li a:hover:not(.active) {width: 316px;
+    background-color: cornflowerblue; color: black;
 }
 .clearfix {content: "";clear: both; display: table;
 }
 header a img {width: 200px; height: 50px;
              display: block; margin: 10px auto 10px auto;
 }
-
+footer {position: fixed; bottom: 10px;right: 0; color: whitesmoke; }

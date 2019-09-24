@@ -1,7 +1,4 @@
 /* div, a{border: 1px solid lightgray;} */
-section { background-image: url("../img/math.jpeg");      
-}
-
 
 .calc{
     width: 422px; height: 536px; margin: auto;
@@ -9,7 +6,7 @@ section { background-image: url("../img/math.jpeg");
     border-radius: 25px;
     padding-top: 27px;
 }
-div{text-align: center;}
+.calc .monitor{text-align: center;}
 .calc .disp{width: 387px; height: 90px; 
             background-color:lightcyan;
             border-radius: 20px;
@@ -35,12 +32,10 @@ input{font-size: 40px; text-align: right;}
     background-color: lawngreen;
 }
 
-.calc.btns.btn_numb{background-color: #ffdab9;line-height: 60px;}
-.calc.btns.btn_sign{background-color: #ff8c00;line-height: 55px;}
+.calc .btns .btn_numb{background-color: #ffdab9;line-height: 60px;}
+.calc .btns .btn_sign{background-color: #ff8c00;line-height: 55px;}
 
-.calc .btns .test{
-   width: 182px; background-color: #ff8c00;
-}
+
 
 .calc .btns a.test:hover {
     background-color: lawngreen;

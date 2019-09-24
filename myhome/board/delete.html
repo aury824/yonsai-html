@@ -7,21 +7,21 @@
     <title>게시판   -   삭제</title>
     <link rel="stylesheet" href="/myhome/css/base.css">
     <link rel="stylesheet" href="/myhome/css/cafe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+
 </head>
 <body>
-     <!-- 헤더 -->
-     <header>
-            <a href="/myhome/"><img src="/myhome/img/main_logo.PNG" alt="logo"></a>
-             <!-- /(루트)아래 myhome 디렉토리에 index.html을 연결 -->
-        </header>
-        <!-- 전역 메뉴 바 -->
+        <header>
+                <pre> UI      Home Page     UX</pre>
+         </header>
+             <!-- 전역 메뉴 바 -->
         <ul class="gnb">
-             <li><a href="/myhome/">홈</a></li>
-             <li><a href="/myhome/portfolio/calc.html">계산기</a></li>
-             <li><a href="/myhome/board/list.html">게시판(글목록)</a></li>
-             <li><a href="/myhome/sitemap.html">사이트맵</a></li>
-             <li class="float_r"><a href="#">로그인</a></li>
-        </ul>
+                <li ><a href="/myhome/" onMouseOver='this.innerHTML="홈"' onMouseOut='this.innerHTML="Home"'><i class="fas fa-home"></i></a></li>
+                <li><a href="/myhome/board/list.html" class="active"onMouseOver='this.innerHTML="게시판"' onMouseOut='this.innerHTML="Borad"'><i class="fas fa-chalkboard"></i></a></li>
+                <li><a href="/myhome/sport/bbs.html"onMouseOver='this.innerHTML="야구"' onMouseOut='this.innerHTML="Sport"'><i class="fas fa-baseball-ball"></i></a></li>
+                <li><a href="/myhome/portfolio/calc.html"onMouseOver='this.innerHTML="계산기"' onMouseOut='this.innerHTML="Calc"'><i class="fas fa-calculator"></i></a></li>
+                <li><a href="/myhome/sitemap.html"onMouseOver='this.innerHTML="사이트"' onMouseOut='this.innerHTML="Sitemap"'><i class="fas fa-map-signs"></i></a></li>
+                    </ul>
         <div class="clearfix"></div>
         <!-- 컨텐츠 -->
         <section>
@@ -29,12 +29,12 @@
                 <p>제목: 바로 몸이 그들의 따뜻한 위하여서 것이다. 갑 안고, 그들</p>
                 <div>이 글을 삭제하시겠습니까?</div>
                 <div>
-                    <button type="button">예</button>
-                    <button type="button">아니오</button>
+                    <button type="button" class="button">예</button>
+                    <button type="button" class="button">아니오</button>
                 </div>
             </div>  
         </section>
         <!-- 풋터 -->
-        <footer>경기도 수원시 장안구 영화동</footer>
-</body>
+        <footer>UI/UX Portfolio</footer>
+    </body>
 </html>

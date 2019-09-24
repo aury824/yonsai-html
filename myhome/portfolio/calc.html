@@ -7,47 +7,30 @@
     <title>포트폴리오   -   계산기</title>
     <link rel="stylesheet" href="/myhome/css/base.css">
     <link rel="stylesheet" href="/myhome/css/calc.css">
-    <!-- <script src="/myhome/js/calc.js"></script> -->
-    <style>
-    .calc .btns button{
-        display:block; 
-        width: 86px; height: 68.8px; 
-        float: left; margin: 5px; border-radius: 18px;
-        color: black; font-size: 60px;
-        text-align:center; text-decoration: none;
-        line-height: 60px;
-    }
-  
-div{text-align: center;}
-input{font-size: 40px; text-align: right;}
-
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
 </head>
 <body>
-        <button class="btn_sign" value="Back" onclick="Back()">Back</button>
-
-     <!-- 헤더 -->
-     <header>
-            <a href="/myhome/"><img src="/myhome/img/main_logo.PNG" alt="logo"></a>
-             <!-- /(루트)아래 myhome 디렉토리에 index.html을 연결 -->
-    </header>
-        <!-- 전역 메뉴 바 -->
+        <header>
+                <pre> UI      Home Page     UX</pre>
+         </header>
+             <!-- 전역 메뉴 바 -->
         <ul class="gnb">
-             <li><a href="/myhome/">홈</a></li>
-             <li><a href="/myhome/portfolio/calc.html" class="active">계산기</a></li>
-             <li><a href="/myhome/board/list.html">게시판(글목록)</a></li>
-             <li><a href="/myhome/sitemap.html">사이트맵</a></li>
-        </ul>
+                <li ><a href="/myhome/" onMouseOver='this.innerHTML="홈"' onMouseOut='this.innerHTML="Home"'><i class="fas fa-home"></i></a></li>
+                <li><a href="/myhome/board/list.html"onMouseOver='this.innerHTML="게시판"' onMouseOut='this.innerHTML="Borad"'><i class="fas fa-chalkboard"></i></a></li>
+                <li><a href="/myhome/sport/bbs.html"onMouseOver='this.innerHTML="야구"' onMouseOut='this.innerHTML="Sport"'><i class="fas fa-baseball-ball"></i></a></li>
+                <li><a href="/myhome/portfolio/calc.html"class="active"onMouseOver='this.innerHTML="계산기"' onMouseOut='this.innerHTML="Calc"'><i class="fas fa-calculator"></i></a></li>
+                <li><a href="/myhome/sitemap.html"onMouseOver='this.innerHTML="사이트"' onMouseOut='this.innerHTML="Sitemap"'><i class="fas fa-map-signs"></i></a></li>
+            </ul>
         <div class="clearfix"></div>
         <!-- 컨텐츠 -->
         <section>
             <div class="calc">
-                <div>
-                    <input type="text" class="disp" id="answer">
+                <div class="monitor">
+                    <input type="text" class="disp">
                 </div>
                 <div class="btns">
-                    <button class="btn_sign init" onclick="init()">C</button>
-                    <button class="btn_sign" value="back" onclick="back()">bs</button>
+                    <button class="btn_sign" onclick="init()">C</button>
+                    <button class="btn_sign" onclick="back()">←</button>
                     <button class="btn_sign" onclick="addOutput('(')">(</button>
                     <button class="btn_sign" onclick="addOutput(')')">)</button>
                     <br>
@@ -75,29 +58,8 @@ input{font-size: 40px; text-align: right;}
             </div>
         </section>
         <!-- 풋터 -->
-        <footer>경기도 수원시 장안구 영화동</footer>
-        <script>
-        const output=document.querySelector(".disp");
+        <footer>UI/UX Portfolio</footer>
+        <script src="/myhome/js/calc.js"></script>
 
-function addOutput(buttonValue){
-const outputValue=output.value+buttonValue;
-output.value=outputValue;
-}
-
-function cal(){
-output.value=eval(output.value);
-}
-
-function init(){
-output.value='';
-}
-//
-function back() {
-    var cal = document.getElementById("cal");
-    cal.innerHTML = cal.innerHTML.substring(0, cal.innerHTML.length - 1);
-    document.getElementById("answer").innerHTML="";
-}
-
-        </script>
 </body>
 </html>
