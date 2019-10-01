@@ -19,6 +19,10 @@ h1 { color: whitesmoke;}
 .content table .author{width: 79px;}
 .content table .created{width: 60px;}
 .content table .attached{width: 64px;}
+.content a:link,
+.content a:visited{ color: whitesmoke;text-decoration: none;}
+.content a:hover {color: yellowgreen;}
+
 
 .font08{font-size: 0.8em;}
 .font2{font-size: 2em;}

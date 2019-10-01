@@ -1,28 +1,29 @@
 
- header {font-family: serif; font-size: 60px;
+ header {font-size: 60px;
     text-align: center; color: lightblue;
     margin: 10px;
 } 
+header a{text-decoration-line: blink; font-family: serif;}
+header a:visited{color: lightblue; }
+/* header a {text-decoration: none;} */
  pre{margin-top: 20px; margin-bottom: 20px;}
  body{margin: 0; background-image: url("/myhome/img/picture.jpeg");
     background-size: cover;
 }
 canvas{display: block; margin: 10px auto 10px auto;}
  div, a, input, textarea, button {box-sizing: border-box;}
- .gnb {    padding-left: 0px;
-    
+ .gnb { padding-left: 0px;
     font-weight: bold;
     list-style-type: none;
-    margin: 0; overflow:hidden;
-    margin-bottom: 24px;
-    
+    overflow:hidden;
+    margin: 0 0 24px 12px;
     /* background-color: #dadada; */
 }
 .gnb li{float: left;}
 .gnb .stie{float: right;}
-.gnb li a{width: 315px;
+.gnb li a{width: 310px; 
     display: block; color: whitesmoke;
-    text-align: center; padding: 14px 132px 14px 133px;
+    text-align: center; padding: 14px 130px 14px 130px;
     text-decoration: none; 
 }
 .gnb li a.active {

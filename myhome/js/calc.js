@@ -1,7 +1,7 @@
-const output=document.querySelector(".disp");
+var output=document.querySelector(".disp");
 
     function addOutput(buttonValue){
-    const outputValue=output.value+buttonValue;
+    var outputValue=output.value+buttonValue;
     output.value=outputValue;
     }
 

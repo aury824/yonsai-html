@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>게임</title>
+    <style>
+        canvas{background-color: #f1f1f1; border: 1px solid #d3d3d3;} 
+        div{text-align: center; width: 500px}
+    </style>
+</head>
+<body onload="startGame()">     
+<!-- 페이지가 실행된후 스크립트 실행  -->
+    <script>
+        var myObstacle;
+        var myGamePiece = [];
+        function startGame(){
+            myGameArea.start();      
+            myGamePiece = new component(30, 30, "blue",10, 120);
+            myObstacle = new component(10, 200, "red",300, 120);
+            // myGamePiece.push(new component(30, 30, "yellow",rdNum, rdNum2));               //myGameArea객체 밑에 start라는 메서드 실행
+        }    
+
+        var myGameArea ={
+            canvas : document.createElement("canvas"),  //"canvas" 라는 요소를 추가
+            start : function(){                         
+                this.canvas.width = 500;    //myGameArea.canvas의 width 값을 480
+                this.canvas.height = 300;   //myGameArea.canvas의 height 값을 270
+                this.context = this.canvas.getContext("2d"); //getContext() 메서드를 사용하여 2d 드로잉 컨텍스트에 액세스
+                document.body.insertBefore(this.canvas,document.body.childNodes[0]); // 참조된 노드 앞에 특정 부모 노드의 자식 노드를 삽입한다
+                    // this.canvas 라는 새로운 노드에  가장 앞쪽에 삽입
+                    this.interval= setInterval(updateGameArea, 20); //일정 시간마다 반복
+            },
+            clear: function(){
+                this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            }
+        }
+
+        function component(width, height, color, x, y){
+            this.width = width;
+            this.height = height;
+            this.x = x;
+            this.y = y;
+            // this.speed = (Math.floor(Math.random()*10)+5)/10;
+            // this.speedY = +1;
+            // Math.floor => 주어진 수 이하의 가장 큰 정수
+            //Math.randon() => 0 이상 1 미만의 부동소숫점 의사 난수. 
+            // 그러므로 (0~1) *10 =  (0~10) + 5 =   (5~15)/10
+            //속도를 0.5~15 사이로 조절  
+            this.speedX = 0;
+            this.speedY = 0;
+            this.update = function(){
+                ctx = myGameArea.context; // context => 실행 객체
+                ctx.fillStyle = color; //도형을 채우는 색
+                ctx.fillRect(this.x, this.y , this.width, this.height);
+            }       //색칠된 직사각형 그리기    
+            this.newPos = function() {
+                this.x += this.speedX;
+                this.y += this.speedY;        
+            }    
+        }
+        
+        function moveU(){
+            myGamePiece.speedY =-1;
+        }
+        function moveL(){
+            myGamePiece.speedX =-1;
+        }
+        function moveD(){
+            myGamePiece.speedY =1;
+        }
+        function moveR(){
+            myGamePiece.speedX =1;
+        }
+        function Clearmove(){
+            myGamePiece.speedX = 0;
+            myGamePiece.speedY = 0;
+
+        }
+        function updateGameArea(){
+            myGameArea.clear();
+            myGamePiece.update();                //화면을 다시그리기
+            myGamePiece.newPos();    
+            myObstacle.update();
+            // for(var i = 0; i<2; i++){
+            //     myGamePiece[i].x += myGamePiece[i].speed; //x에 스피드를 추가해서 
+            }
+        
+    </script>
+    <div>
+        <button onmouseup="Clearmove()" onmousedown="moveU()"  onclick="moveU()">Up</button><Br>
+        <button onmouseup="Clearmove()" onmousedown="moveL()"  onclick="moveL()">Left</button>
+        <button onmouseup="Clearmove()" onmousedown="moveD()"  onclick="moveD()">Down</button>
+        <button onmouseup="Clearmove()" onmousedown="moveR()"  onclick="moveR()">Right</button>
+    </div>
+</body>
+</html>

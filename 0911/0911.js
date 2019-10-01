@@ -1,5 +1,5 @@
 
-var env = {
+var env = {                         //각각의 객체 선언
     btns: [], 
     inKeys: [],
     calcHist: [],
@@ -18,11 +18,11 @@ function Btn(el, type, key) {
 
    
     var a = this.el;
-    a.onclick = this.clickKey.bind(this);
-}
+    a.onclick = this.clickKey.bind(this);   //여기서의 this는 window를 가리킴
+}                                           //그러므로 bind사용 
 
-Btn.prototype.getObj = function () {
-    console.log(this);
+Btn.prototype.getObj = function () {        //prototype 는 객체를 여러군데 저장할 필요 없이
+    console.log(this);                      //하나의 저장소에 저장하고 필요 할때마다 끌어와서 사용
     return this;
 }
 
@@ -86,9 +86,9 @@ Btn.prototype.saveHist = function (txtMath) {
 }
 
 function createBtns() {
-    var btns = document.querySelectorAll('a[class^="btn_"]');
+    var btns = document.querySelectorAll('a[class^="btn_"]'); //a테그의 btn_ 로 시작하는 모든 
     for (var idx in btns) {
-        var obj = btns[idx];
+        var obj = btns[idx];  // 각 a 테그를 btns[]에 넣음
         if(obj.nodeName === 'A') {
             // console.log(obj);
             var el = new Btn(obj, obj.dataset.type, obj.dataset.key);

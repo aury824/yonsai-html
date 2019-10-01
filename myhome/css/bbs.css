@@ -6,6 +6,8 @@ pre{margin: 20px auto 20px auto;
     font-family: serif;
     color: lightblue;
 }
+header a:hover{color: #007bff;text-decoration-line: blink; }
+
 .dropdown {
     position: relative;
     display: inline-block;

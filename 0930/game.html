@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>핑퐁-객체</title>
+    <style>
+        canvas { background-color: #f1f1f1; border: 1px solid #d3d3d3;}
+    </style>
+</head>
+<body onload="startGame()">
+    <script>
+        var env = {
+            paddle : [],
+            ball : [],
+            bricks : []
+        }
+       
+            function startGame(){
+                myGameArea.start();
+                env.paddle = new component(100, 10, "red", 200, 290);
+                env.ball = new component(15,15, "green", 250, 250);
+                // for(var c=0; c<5; c++) {
+                //     env.bricks[c] = [];
+                //     for(var r=0; r<3; r++) {
+                //         env.bricks[c][r] = {x: 0, y:0};
+                //         var brickX = (c*85)+30;
+                //         var brickY = (r*30)+30;
+                //         env.bricks[c][r] = brickX;
+                //         env.bricks[c][r] = brickY;
+                //         env.bricks.push(new component(75,20,"blue",brickX,brickY));
+                //     }
+                // }
+                // env.bricks = new component(75,20,"blue",30,30);
+            }
+            
+            var myGameArea = {
+                canvas : document.createElement("canvas"),
+                start : function() {
+                    this.canvas.width = 500;
+                    this.canvas.height = 300;
+                    this.context = this.canvas.getContext("2d");
+                    document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                    this.interval= setInterval(updateGameArea, 20);
+
+                },
+                clear: function(){
+                    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                },
+            }
+            //생성자 함수
+            function component(width, height, color, x, y){
+                this.width = width;
+                this.height = height;
+                this.x = x;
+                this.y = y;
+                this.dX = -2;
+                this.dY =-2;
+                this.ballRadius = 15;
+                this.paddleX = (myGameArea.canvas.width-100)/2;
+                
+               
+                this.update = function(){
+                    ctx = myGameArea.context;
+                    ctx.fillStyle = color;
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                }
+                this.newPos = function() {
+                    this.x += this.dX;
+                    this.y += this.dY;
+                    //튕기기
+                    if(this.x + this.dX > myGameArea.canvas.width-this.ballRadius || this.x + this.dX < this.ballRadius) {
+                        this.dX = -(this.dX);
+                    }
+                    if(this.y + this.dY < this.ballRadius) {
+                        this.dY = -(this.dY);
+                    }
+                    else if(this.y + this.dY > myGameArea.canvas.height-this.ballRadius) {                                  
+                        if(this.x > this.paddleX && this.x < this.paddleX + 100) {                           
+                            this.dY = -(this.dY);                                       //화면 중앙으로 다시 보내기                        
+                                                      // 패들에 튕길때마다 속도 빨라지기
+                        }  
+                        // else{                                                                   
+                        //     // alert("GAME OVER");                                                  
+                        //     document.location.reload();  
+                        // }                                
+                    }
+                }
+                
+            }
+            var rightPressed = false;
+            var leftPressed = false;
+          
+            function move(){
+                //키값
+                var paddleX;
+                if(rightPressed && paddleX < myGameArea.canvas.width-100) {    //패들이 화면 밖으로 사라지는걸 방지
+                    paddleX += 7;                                           //오른쪽 방향으로 7픽셀만큼
+                }
+                else if(leftPressed && paddleX > 0) {                       //왼쪽 방향으로 7픽셀만큼
+                    paddleX -= 7;
+                }
+            }
+            
+            
+            document.addEventListener("keydown", keyDownHandler, false); //키보드중 어떤키 하나가 눌리면
+            document.addEventListener("keyup", keyUpHandler, false);    //키 이벤트가 발생하여 keyDownHandler
+            
+            function keyDownHandler(e) {
+                if(e.keyCode == 39) {
+                    rightPressed = true;    //39는 오른쪽방향
+                }
+                else if(e.keyCode == 37) {  //37은 왼쪽방향
+                    leftPressed = true;     //왼쪽방향키를 누르면 leftPressed 변수가 true설정
+                }                           // 손을때면 false 로 설정
+            }                               
+
+            function keyUpHandler(e) {
+                if(e.keyCode == 39) {
+                    rightPressed = false;
+                }
+                else if(e.keyCode == 37) {
+                    leftPressed = false;
+                }
+            }
+           
+            function updateGameArea(){
+                myGameArea.clear();
+                env.paddle.update();
+                env.ball.update();
+                env.ball.newPos();
+                move();
+                // for(var c = 0; c<5; c++){
+                //     for(var r = 0; r<3; r++){
+                //         env.bricks[c][r].update();
+                //     }
+                // }
+            }
+            
+    </script>
+    
+</body>
+</html>
